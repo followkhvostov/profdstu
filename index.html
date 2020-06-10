@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        
+        <link rel="stylesheet" type="text/css" href="styles/fullpage.css">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/bootstrap-social.css">
+        <script src="https://kit.fontawesome.com/8e65bf1e5b.js" crossorigin="anonymous"></script>
+        
+
+        <title></title>
+    </head>
+    <body>
+        <a class="logo">
+            <img src="img/logo-white.png">
+        </a>
+        <div class="menu-opener">
+            <div class="dropleft">
+                <button type="button" class="btn-clean btn-up menu-opener-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <span>asd</span>
+                  </div>
+            </div>            
+        </div>
+        <div class="next-page-box">
+            <button class="next-page-btn btn-up btn-clean">
+                <span class="fa fa-sort-desc"></span>
+            </button>
+        </div>
+        <div id="modalVideo" class="modal fade">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="content">
+                <div class="modal-content">
+                    <video class="video-modal-video" controls>
+                        <source src="video/back.mp4" type="video/mp4">
+                    </video>
+                    <button id="closeButton" type="button" class="btn btn-up close-button" data-dismiss="modal">
+                        <span class="fa fa-close"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="fullpage">    
+            <div class="section" id="header">
+                <div class="container-fluid">
+                    <div class="header_video-background-box">
+                        <div class="header_video-blackout"></div>
+                        <video class="header_video" data-keepplaying loop autoplay preload muted>
+                            <source src="video/back.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="header_content">
+                        <div class="col-12 col-md-10 offset-md-1 d-flex flex-column align-items-center">
+                            <div class="header_brand">
+                                <h1><span class="small">Первичная</span><br>профсоюзная организация<br><span class="small">обучающихся</span><br><span class="big">ДГТУ</span></h1>
+                            </div>
+                            <button id="playButton" class="button-round btn-up" data-toggle="modal" data-target="#modalVideo"> 
+                                <span class="fa fa-play"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="section1">
+                <div class="intro">
+                    <h1>Speed on mobile</h1>
+                    <p>
+                  If CSS3 transforms are supported (e.g. on mobile devices) they will be used for animations, usually a good
+                  choice if the animation on mobile devices is slow.
+                    </p>
+                </div>
+            </div>
+            <div class="section" id="section2">
+                <div class="intro">
+                    <h1>No CSS3? No problem!</h1>
+                    <p>If CSS3 is not available, animations will fall back to javascript driven animations.</p>
+                </div>
+            </div>
+            <div class="section" id="footer">
+                <div class="intro">
+                    <h1>No CSS3? No problem!</h1>
+                    <p>If CSS3 is not available, animations will fall back to javascript driven animations.</p>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="scripts/fullpage.js"></script>
+        <script type="text/javascript">
+            var myFullpage = new fullpage('#fullpage', {
+            });
+        </script>
+        <script>
+            $('.next-page-btn').click(function() {
+                fullpage_api.moveSectionDown();
+            });
+            $('.logo').click(function() {
+                fullpage_api.moveTo(1, 0);
+            });
+        </script>
+    </body>
+</html>

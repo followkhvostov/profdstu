@@ -1,0 +1,147 @@
+.button-round {
+    transition: .1s;
+    margin-top: 50px;
+    background: none;
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15px;
+}
+.btn-clean {
+    border: none;
+    background: none;
+}
+.btn-up {
+    transition: .2s;
+}
+.btn-up:hover {
+    transform: scale(1.3);
+    transition: .2s;
+}
+.btn-up:focus {
+    transform: scale(1.3);
+}
+.logo {
+    position: fixed;
+    top: 25px;
+    z-index: 1;
+    width: 80px;
+    padding: 0 10px;
+    background-color: rgb(0, 82, 158);
+}
+.logo img {
+    width: 100%;
+}
+.logo:hover {
+    width: 110px;
+    padding-left: 40px;
+    transition: .3s;
+    cursor: pointer;
+}
+.menu-opener {
+    position: fixed;
+    top: 32px;
+    right: 0px;
+    z-index: 1;
+}
+.menu-opener-button span {
+    margin: 10px;
+    color: white;
+    font-size: 30px;
+}
+.header_video-background-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+.header_video {
+    width: 1920px
+}
+
+.header_video-blackout {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: .5;
+    top : 0;
+    left : 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.header_brand h1 {
+    font-size: 4vw;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3.5vw;
+    text-shadow: 0 0 20px rgba(0,0,0,.6);
+}
+.header_brand h1 .big {
+    font-size: 6vw;
+    line-height: 5vw;
+}
+.header_brand h1 .small {
+    font-size: 3.5vw;
+}
+.header-body {
+    position: absolute;
+}
+.next-page-box {
+    position: fixed;
+    bottom: 5px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+.next-page-btn span {
+    color: white;
+    font-size: 40px;
+}
+.video-modal {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0);
+}
+.video-modal-box {
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+}
+.video-modal-video {
+    width: 100%;
+    height: auto;
+}
+.close-button {
+    position: absolute;
+    top: -10px;
+    right: -60px;
+}
+.close-button span {
+    color: white;
+    font-size: 40px;
+}
+.modal {
+    background-color: black;
+}
