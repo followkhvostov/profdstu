@@ -16,23 +16,18 @@
         <title></title>
     </head>
     <body>
-        <a class="logo">
-            <img src="img/logo-white.png">
+        <a class="logo items-back">
+            <img id="logoImg" src="img/logo-white.png">
         </a>
         <div class="menu-opener">
             <div class="dropleft">
-                <button type="button" class="btn-clean btn-up menu-opener-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div id="menu" class="dropdown-menu">
+                  </div>
+                <button id="menuOpener" type="button" data-toggle="dropdown" class="btn-clean btn-up menu-opener-button color-white" aria-haspopup="true" aria-expanded="false">
                     <span class="fa fa-bars"></span>
                 </button>
-                <div class="dropdown-menu">
-                    <span>asd</span>
-                  </div>
-            </div>            
-        </div>
-        <div class="next-page-box">
-            <button class="next-page-btn btn-up btn-clean">
-                <span class="fa fa-sort-desc"></span>
-            </button>
+                
+            </div>     
         </div>
         <div id="modalVideo" class="modal fade">
             <div class="modal-dialog modal-xl modal-dialog-centered" role="content">
@@ -46,7 +41,11 @@
                 </div>
             </div>
         </div>
-        
+        <div class="next-page-box">
+            <button class="next-page-btn btn-up btn-clean color-white">
+                <span class="fa fa-sort-desc"></span>
+            </button>
+        </div>
         <div id="fullpage">    
             <div class="section" id="header">
                 <div class="container-fluid">
@@ -70,23 +69,21 @@
             </div>
             <div class="section" id="section1">
                 <div class="intro">
-                    <h1>Speed on mobile</h1>
-                    <p>
-                  If CSS3 transforms are supported (e.g. on mobile devices) they will be used for animations, usually a good
-                  choice if the animation on mobile devices is slow.
-                    </p>
+                    Тут что-то
+                </div>
+                <div class="next-page-box">
                 </div>
             </div>
             <div class="section" id="section2">
                 <div class="intro">
-                    <h1>No CSS3? No problem!</h1>
-                    <p>If CSS3 is not available, animations will fall back to javascript driven animations.</p>
+                    И тут тоже)
+                </div>
+                <div class="next-page-box">
                 </div>
             </div>
             <div class="section" id="footer">
-                <div class="intro">
-                    <h1>No CSS3? No problem!</h1>
-                    <p>If CSS3 is not available, animations will fall back to javascript driven animations.</p>
+                <div class="footer-content">
+                    
                 </div>
             </div>
         </div>
@@ -97,7 +94,49 @@
         <script type="text/javascript" src="scripts/fullpage.js"></script>
         <script type="text/javascript">
             var myFullpage = new fullpage('#fullpage', {
-            });
+                onLeave: function(origin, destination, direction){
+                    if (origin.isFirst === true) {
+                        $('.next-page-btn').removeClass('color-white');
+                        $('.next-page-btn').addClass('color-blue');
+                        setTimeout(() => {
+                            $('#menuOpener').removeClass('color-white');
+                            $('#menuOpener').addClass('color-blue');
+                        }, 470);
+                    }
+                    if (destination.isFirst === true) {
+                        setTimeout(() => {
+                            $('.next-page-btn').removeClass('color-blue');
+                            $('.next-page-btn').addClass('color-white');    
+                        }, 610);
+                        setTimeout(() => {
+                            $('#menuOpener').removeClass('color-blue');
+                            $('#menuOpener').addClass('color-white');
+                        }, 50);
+                    }
+                    if (destination.isLast === true) {
+                        setTimeout(() => {
+                            $('.logo').removeClass('items-back');
+                            $('.logo').addClass('items-back-white');
+                            $('#logoImg').attr('src', 'img/logo-blue.png');
+                            $('#menuOpener').removeClass('color-blue');
+                            $('#menuOpener').addClass('color-white');
+                        }, 470);
+                        $('.next-page-box').addClass('d-none');
+                    } else {
+                        if ($('.logo').hasClass('items-back-white')) {
+                            setTimeout(() => {
+                                $('.logo').removeClass('items-back-white');
+                                $('.logo').addClass('items-back');
+                                $('#logoImg').attr('src', 'img/logo-white.png');
+                                $('#menuOpener').removeClass('color-white');
+                                $('#menuOpener').addClass('color-blue');
+                            }, 50);
+                            setTimeout(() => {
+                                $('.next-page-box').removeClass('d-none');
+                            }, 650);
+                        }
+                    }
+                }});
         </script>
         <script>
             $('.next-page-btn').click(function() {
@@ -105,6 +144,16 @@
             });
             $('.logo').click(function() {
                 fullpage_api.moveTo(1, 0);
+            });
+            $('#menuOpener').click(function() {
+                $('.dropdown-toggle').dropdown()
+            });
+            
+            $('#modalVideo').on('hide.bs.modal', function () {
+                var video = document.getElementsByClassName('video-modal-video');
+                for (let i = 0; i < video.length; i++){
+                    video[i].pause();
+                }
             });
         </script>
     </body>
