@@ -22,7 +22,7 @@
         <div class="menu-opener">
             <div class="dropleft">
                 <div id="menu" class="dropdown-menu">
-                  </div>
+                </div>
                 <button id="menuOpener" type="button" data-toggle="dropdown" class="btn-clean btn-up menu-opener-button color-white" aria-haspopup="true" aria-expanded="false">
                     <span class="fa fa-bars"></span>
                 </button>
@@ -67,21 +67,34 @@
                     </div>
                 </div>
             </div>
-            <div class="section" id="section1">
-                <div class="intro">
-                    Тут что-то
+            <div class="section section-dark" id="section1">
+                <div class="about-us">
+                    <div id="aboutUs" class="about-us_text">
+                        <div class="slider-header">О нас</div>
+                        <p>
+                            <b>Первичная профсоюзная организация обучающихся ДГТУ </b>- молодежная общественная организация, объединяющая креативных, 
+                            активных и целеустремленных людей, девиз которых: 
+                        </p>
+                        <div class="slider-subheader">«Готовы помочь каждому!»</div>
+                        <br>
+                        <button class="btn-clean btn-sliders color-blue">
+                            Узнать больше
+                            <div class="btn-sliders-back items-back-white"><span class="fa fa-arrow-right "></span></div>
+                        </button>
+                    </div>
                 </div>
-                <div class="next-page-box">
+                <div class="section-image-box d-block row">
+                    <div id="aboutUsImg" class="section-image d-flex justify-content-center">
+                        <img height="100%" src="img/about-us-img.jpg">
+                    </div>  
                 </div>
             </div>
-            <div class="section" id="section2">
+            <div class="section section-light" id="section2">
                 <div class="intro">
                     И тут тоже)
                 </div>
-                <div class="next-page-box">
-                </div>
             </div>
-            <div class="section" id="footer">
+            <div class="section section-dark" id="footer">
                 <div class="footer-content">
                     
                 </div>
@@ -95,48 +108,90 @@
         <script type="text/javascript">
             var myFullpage = new fullpage('#fullpage', {
                 onLeave: function(origin, destination, direction){
-                    if (origin.isFirst === true) {
-                        $('.next-page-btn').removeClass('color-white');
-                        $('.next-page-btn').addClass('color-blue');
-                        setTimeout(() => {
-                            $('#menuOpener').removeClass('color-white');
-                            $('#menuOpener').addClass('color-blue');
-                        }, 470);
-                    }
-                    if (destination.isFirst === true) {
-                        setTimeout(() => {
+                    $('button').blur();
+                    $('.dropdown-menu').dropdown('hide');
+                    if (direction == 'down') {
+                        if (destination.isLast == true) {
+                            $('.next-page-box').addClass('d-none');
+                        }
+                        if (destination.index == 1 || destination.isLast == true) {
                             $('.next-page-btn').removeClass('color-blue');
-                            $('.next-page-btn').addClass('color-white');    
-                        }, 610);
-                        setTimeout(() => {
-                            $('#menuOpener').removeClass('color-blue');
-                            $('#menuOpener').addClass('color-white');
-                        }, 50);
-                    }
-                    if (destination.isLast === true) {
-                        setTimeout(() => {
-                            $('.logo').removeClass('items-back');
-                            $('.logo').addClass('items-back-white');
-                            $('#logoImg').attr('src', 'img/logo-blue.png');
-                            $('#menuOpener').removeClass('color-blue');
-                            $('#menuOpener').addClass('color-white');
-                        }, 470);
-                        $('.next-page-box').addClass('d-none');
-                    } else {
-                        if ($('.logo').hasClass('items-back-white')) {
+                            $('.next-page-btn').addClass('color-white');
+                            setTimeout(() => {
+                                $('.logo').removeClass('items-back');
+                                $('.logo').addClass('items-back-white');
+                                $('#logoImg').removeAttr('src');
+                                $('#logoImg').attr('src', 'img/logo-blue.png');
+                                $('#menuOpener').removeClass('color-blue');
+                                $('#menuOpener').addClass('color-white');
+                            }, 500);
+                        } else {
+                            $('.next-page-btn').removeClass('color-white');
+                            $('.next-page-btn').addClass('color-blue');
                             setTimeout(() => {
                                 $('.logo').removeClass('items-back-white');
                                 $('.logo').addClass('items-back');
+                                $('#logoImg').removeAttr('src');
                                 $('#logoImg').attr('src', 'img/logo-white.png');
                                 $('#menuOpener').removeClass('color-white');
                                 $('#menuOpener').addClass('color-blue');
-                            }, 50);
-                            setTimeout(() => {
-                                $('.next-page-box').removeClass('d-none');
-                            }, 650);
+                            }, 500);
                         }
                     }
-                }});
+                    if (direction == 'up') {
+                        if (origin.isLast == true) {
+                            setTimeout(() => {
+                                $('.next-page-box').removeClass('d-none');
+                            }, 630);
+                        }
+                        if (destination.isFirst == true || destination.index == 2) {
+                            setTimeout(() => {
+                                $('.logo').removeClass('items-back-white');
+                                $('.logo').addClass('items-back');
+                                $('#logoImg').removeAttr('src');
+                                $('#logoImg').attr('src', 'img/logo-white.png');
+                            }, 50);
+                        } else {
+                            setTimeout(() => {
+                                $('.logo').removeClass('items-back');
+                                $('.logo').addClass('items-back-white');
+                                $('#logoImg').removeAttr('src');
+                                $('#logoImg').attr('src', 'img/logo-blue.png');
+                            }, 50);
+                        }
+                        if (destination.index == 2) {
+                            setTimeout(() => {
+                                $('#menuOpener').removeClass('color-white');
+                                $('#menuOpener').addClass('color-blue');
+                            }, 70);
+                            setTimeout(() => {
+                                $('.next-page-btn').removeClass('color-white');
+                                $('.next-page-btn').addClass('color-blue');
+                            }, 630);
+                        } else {
+                            setTimeout(() => {
+                                $('#menuOpener').removeClass('color-blue');
+                                $('#menuOpener').addClass('color-white');
+                            }, 70);
+                            setTimeout(() => {
+                                $('.next-page-btn').removeClass('color-blue');
+                                $('.next-page-btn').addClass('color-white');
+                            }, 630);
+                        }
+                    }
+                    if (destination.index == 1) {
+                        $('#aboutUsImg').addClass('collapse-left');
+                        setTimeout(() => {
+                            $('.about-us_text').removeClass('d-none'); 
+                        }, 100);
+                    }
+                },
+                afterLoad: function(origin, destination, direction) {
+                    if (origin.index == 1) {
+                        $('#aboutUsImg').removeClass('collapse-left');
+                    }
+                }
+                });
         </script>
         <script>
             $('.next-page-btn').click(function() {
@@ -148,7 +203,6 @@
             $('#menuOpener').click(function() {
                 $('.dropdown-toggle').dropdown()
             });
-            
             $('#modalVideo').on('hide.bs.modal', function () {
                 var video = document.getElementsByClassName('video-modal-video');
                 for (let i = 0; i < video.length; i++){
