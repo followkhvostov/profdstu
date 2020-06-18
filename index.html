@@ -69,13 +69,13 @@
             </div>
             <div class="section section-dark" id="section1">
                 <div class="about-us">
-                    <div id="aboutUs" class="about-us_text">
+                    <div id="aboutUs" class="slider-text container color-white d-flex flex-column align-items-center">
                         <div class="slider-header">О нас</div>
                         <p>
-                            <b>Первичная профсоюзная организация обучающихся ДГТУ </b>- молодежная общественная организация, объединяющая креативных, 
+                            <b>Первичная профсоюзная организация обучающихся ДГТУ </b>-<br> молодежная общественная организация, объединяющая креативных, 
                             активных и целеустремленных людей, девиз которых: 
                         </p>
-                        <div class="slider-subheader">«Готовы помочь каждому!»</div>
+                        <div class="slider-subheader text-align-center">«Готовы помочь каждому!»</div>
                         <br>
                         <button class="btn-clean btn-sliders color-blue">
                             Узнать больше
@@ -91,12 +91,51 @@
             </div>
             <div class="section section-light" id="section2">
                 <div class="intro">
-                    И тут тоже)
+                    Тут будет что-то)
                 </div>
             </div>
             <div class="section section-dark" id="footer">
                 <div class="footer-content">
-                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <div class="slider-header color-white">КОНТАКТЫ</div>
+                                <div class="contacts-icon btn-slide">
+                                    <a href="tel:+78632738505"><span class="fa fa-phone"></span> +7 (863) 273-85-05</a>
+                                </div>
+                                <div class="contacts-icon btn-slide">
+                                    <a href="mailto:profdstu@mail.ru"><span class="fa fa-envelope contacts-icon color-white"></span> profdstu@mail.ru</a>
+                                </div><br>
+                                <div class="color-white">
+                                    <a href="https://vk.com/profdstu" target="_blank"><span class="fa fa-social fa-vk btn-up"></span></a>
+                                    <a href="https://www.instagram.com/profdstu/" target="_blank"><span class="fa fa-social fa-instagram btn-up"></span></a>
+                                    <a href="https://twitter.com/profdstu" target="_blank"><span class="fa fa-social fa-twitter btn-up"></span></a>
+                                </div><br>
+                                <div id="adressListBox">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="fa fa-map-marker contacts-icon color-white"></span>
+                                        <span><a data-toggle="collapse" href="#adressList" role="button" aria-expanded="false" aria-controls="#adressList">
+                                            <h4 id="adressListHeader" class="adress-item btn-slide color-white">&nbsp;Пл. Гагарина 1, 8-143 <span id="adressListOpener" class="d-none fa fa-chevron-circle-down color-white"></span></h4>
+                                        </a>
+                                        </span>
+                                    </div>
+                                    <div class="collapse" id="adressList">
+                                        <h6 class="adress-item adress-item-secondary color-white btn-slide">Ул. Социалистическая 162, 21-104</h6>
+                                        <h6 class="adress-item adress-item-secondary color-white btn-slide">Ул. Страны Советов 1, 10-313</h6>
+                                        <h6 class="adress-item adress-item-secondary color-white btn-slide">Ул. 24-я линия, 17-417</h6>  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 d-none d-sm-block">
+                                <div class="map-border">
+                                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ada4d4bae32189e282a39a9cad8d4f2b9242c29810af662c82531ce5dfe08839c&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-copy">
+                        <p class="color-white">&copy; 2020 Первичная профсоюзная организация обучающихся ДГТУ</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -208,6 +247,22 @@
                 for (let i = 0; i < video.length; i++){
                     video[i].pause();
                 }
+            });
+            $('#adressList').on('show.bs.collapse', function () {
+                $('#adressListOpener').removeClass('d-none');
+                $('#adressListOpener').removeClass('fa-chevron-circle-down');
+                $('#adressListOpener').addClass('fa-chevron-circle-up');
+                $('#adressListBox').addClass('items-back-white');
+                $('#adressListBox').find('.color-white').addClass('color-blue');
+                $('#adressListBox').find('.color-white').removeClass('color-white');
+            });
+            $('#adressList').on('hidden.bs.collapse', function () {
+                $('#adressListOpener').addClass('d-none');
+                $('#adressListOpener').removeClass('fa-chevron-circle-up');
+                $('#adressListOpener').addClass('fa-chevron-circle-down');
+                $('#adressListBox').removeClass('items-back-white');
+                $('#adressListBox').find('.color-blue').addClass('color-white');
+                $('#adressListBox').find('.color-blue').removeClass('color-blue');
             });
         </script>
     </body>

@@ -55,6 +55,7 @@ button:focus,
     padding: 5px 15px;
     width: fit-content;
     height: fit-content;
+    transition: .3s;
 }
 .btn-sliders-back {
     position: absolute;
@@ -71,14 +72,8 @@ button:focus,
 }
 .btn-sliders:hover .btn-sliders-back {
     background-color: rgb(229, 240, 250);
-    animation-name: btn-hover;
-    animation-duration: .3s;
-    animation-fill-mode: forwards;
-}
-@keyframes btn-hover {
-    100% {
-        width: calc(100% + 25px);
-    }
+    width: calc(100% + 25px);
+    transition: .3s;
 }
 .btn-up {
     transition: .2s;
@@ -251,19 +246,8 @@ button:focus,
     justify-content: center;
     background-color: rgba(0, 82, 158, .8);
 }
-.about-us_text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 55%;
-    border-radius: 2vw;
-    color: white;
-    transition: 2s;
-}
-.about-us_text p {
-    font-size: 1.7vw;
-    font-weight: 400;
+.slider-text {
+    font-size: calc(.6vw + 15px);
 }
 .d-none {
     transition: 2s;
@@ -271,17 +255,92 @@ button:focus,
 #footer {
     background-color: rgb(0, 82, 158);
 }
+.footer-copy {
+    background-color: rgb(1, 64, 124);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-copy p {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    margin-top: 3px;
+    opacity: .8;
+    font-size: calc(.3vw + 10px);
+}
 .slider-header {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 5vw;
+    font-size: calc(1rem + 40px);
 }
 .slider-subheader {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 2vw;
+    font-size: calc(.5rem + 13px);
+    text-align: center;
 }
 p {
     text-align: center;
 }
-
+.fa-phone {
+    transform: rotate(90deg);
+}
+.contacts-icon {
+    font-size: calc(.8vw + 20px);
+}
+.contacts-icon-small {
+    text-transform: uppercase;
+    font-size: calc(.2vw + 20px);
+}
+a:active,
+a:hover,
+a {
+  text-decoration: none !important;
+  color: white !important;
+}
+.btn-slide {
+    transition: .3s;
+}
+.btn-slide:hover {
+    transform: scale(1.1) translateX(5%);
+    transition: .3s;
+}
+.fa-social {
+    margin-right: 20px;
+    font-size: 60px;
+    transition: .3s;
+}
+.fa-social:hover {
+    color: rgb(184, 218, 250) !important;
+    transition: .3s;
+}
+.map-border {
+    width: 100%;
+    height: 500px;
+    border: 5px solid white;
+    border-radius: 5%;
+    overflow: hidden;
+}
+.adress-item {
+    text-transform: uppercase;
+}
+.adress-item-secondary {
+    margin-left: calc(.8vw + 20px);
+}
+#adressListOpener {
+    transition: .3s;
+}
+#adressListHeader:hover #adressListOpener {
+    display: inline-flex !important;
+    transition: .3s;
+}
+#adressListBox {
+    border-radius: 15px;
+    width: 370px;
+    padding: 10px;
+    margin-left: -10px;
+}
